@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}You have Signed up successfully{% endblock %}
+{% block content %}
+	<div id ="parentid" style="height: 450px;  width: 50%; float:right;">
+	{% autoescape off %}
+		{{ plot_div }}
+	{% endautoescape %}
+	</div>
+	<div id ="childid" style="height: 450px;  width: 50%;float:left;">
+	 {% autoescape off %}
+		{{ plot_div1 }}
+	{% endautoescape %}
+	</div>
+	<div id ="childid" style="height: 400px;width: 70%;float:left;padding-left: 0px;"">
+	 {% autoescape off %}
+		{{ plot_div2 }}
+	{% endautoescape %}
+	</div>
+  <h2>CONGRATS!!!! </h2>
+  <p>REGISTRATION SUCCESSFUL</p>
+  <!--<p><a href="{% url 'login' %}">login</a>-->
+{% endblock %}

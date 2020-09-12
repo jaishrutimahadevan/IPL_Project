@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" href="{% static 'css/my_style1.css' %}">	
+	
+    <title>IPL WORLD!</title>
+ </head>
+<body>
+<div class="container-fluid" style="padding-left: 0px; padding-right:0px;">
+  <div class="row-fluid" style="padding-left: 0px;">
+  <div class="span2" style="width:20%;height:1500px;float:left; background-color:#068481;font-size:10px;color:#000000;">
+		 <h1 style = "font-size=10px; color:black;"> <a href="https://en.wikipedia.org/wiki/Chennai_Super_Kings"><strong>Chennai Super Kings</strong></a></h1>
+		 <h1 style = "font-size=10px; color:black;"><a href="https://en.wikipedia.org/wiki/Mumbai_Indians"><strong>Mumbai_Indians</strong></a></h1>
+		 <h1 style = "font-size=10px; color:black;"><a href="https://en.wikipedia.org/wiki/Kolkata_Knight_Riders"><strong>Kolkata_Knight_Riders</strong></a></h1>
+		 <h1 style = "font-size=10px; color:black;"><a href="https://en.wikipedia.org/wiki/Kings_XI_Punjab"><strong>Kings_XI_Punjab</strong></a></h1>
+		 <h1 style = "font-size=10px; color:black;"><a href="https://en.wikipedia.org/wiki/Delhi_Capitals"><strong>Delhi_Capitals</strong></a></h1>
+		 <h1 style = "font-size=10px; color:black;"><a href="https://en.wikipedia.org/wiki/Royal_Challengers_Bangalore"><strong>Royal_Challengers_Bangalore</strong></a></h1>
+		 <h1 style = "font-size=10px; color:black;"><a href="https://en.wikipedia.org/wiki/Sunrisers_Hyderabad"><strong>Sunrisers_Hyderabad</strong></a></h1>
+  </div>
+  <div class="row-fluid"style="padding-left:0px; padding-right=0px; ">
+  <div class="span10" style="width:80%;height:1500px;float:left;background-color:#f4d0b9;">
+       
+    <nav class="navbar navbar-expand-lg navbar-light p-3 mb-2 bg-danger text-white">
+  <a class="navbar-brand" href="#"><strong>IPL</strong></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+	{% if user.is_authenticated %}
+	 <li class="nav-item active">
+        <a class="nav-link" href="#"><strong> Hi {{ user.username }}!</strong> <span class="sr-only">(current)</span></a>
+      </li>
+      
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'logout' %}"><strong>LOGOUT</strong> <span class="sr-only">(current)</span></a>
+      </li>
+	  <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <strong>Dropdown</strong>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'dashboard' %}">Match Results</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      
+	  {% else %}
+	  <li class="nav-item">
+        <a class="nav-link" href="{% url 'login' %}"><strong>LOGIN</strong></a>
+      </li>
+	  <li class="nav-item">
+        <a class="nav-link" href="{% url 'signup' %}"><strong>New User Signup</strong></a>
+      </li>
+	  {% endif %}
+      
+     
+    </ul>
+		<span class="navbar-text" style="font-size:25px;color:#CFB53B;">
+      <strong>* * * IPL 2020 postponed due to Covid-19 * * *</strong>
+    </span>  
+</nav> 
+
+	{% block content %}
+		{% if user.is_authenticated %}
+		<a href="{% url 'successfullogin' %}">successfullogin</a>
+		
+	
+		{% else %}	
+		<a href="{% url 'signup' %}">New User Signup</a>
+		{% endif %}
+		{% endblock %}
+
+		 </div>
+		</div>
+    </div>   
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+   
+ 
+</body>
+</html>

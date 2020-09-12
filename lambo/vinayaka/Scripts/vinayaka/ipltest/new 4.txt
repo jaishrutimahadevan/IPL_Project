@@ -1,0 +1,45 @@
+table-dark
+
+bgcolor="#0059b3" blue
+"#6600ff" violet
+
+table-bordered
+table-dark
+table-striped
+ <tr >
+                    <td class="bg-active" >{{things.id}}</td>
+					<td bgcolor="#9b59b6">{{things.season}}</td>
+					<td bgcolor="#0059b3">{{things.city}}</td>
+					<td class="bg-success">{{things.date}}</td>
+					<td class="bg-danger">{{things.team1}}</td>
+					<td class="bg-warning">{{things.team}}</td>
+					<td class="bg-info">{{things.toss_winner}}</td>
+					<td class="bg-active" >{{things.toss_decision}}</td>
+					<td class="bg-danger">{{things.result}}</td>
+					<td bgcolor="#9b59b6">{{things.dl_applied}}</td>
+					<td class="bg-success">{{things.winner}}</td>
+					<td class="bg-warning">{{things.win_by_runs}}</td>
+					<td class="bg-danger">{{things.win_by_wickets}}</td>
+					<td class="bg-info">{{things.player_of_match}}</td>
+					<td bgcolor="#0059b3">{{things.venue}}</td>
+					<td class="bg-success">{{things.umpire1}}</td>
+					<td class="bg-info">{{things.umpire}}</td>
+					<td class="bg-warning">{{things.umpire3}}</td>
+                </tr>
+				
+				#parentid {
+  width: 50%;
+  height: 100px;
+  border: 1px solid red;
+  margin-right: 10px;
+  float: left;
+}
+.child_div_1 {
+  float: left;
+  margin-right: 5px;
+}
+
+
+select UUID() as 'id',winner,count(*) as winner_count 
+from ipl_test where winner != " "
+group by winner order by count(*) desc limit 5;

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class:"container">
+<div class="card" style="width: 15rem; float:left;background-color:#ff9933;">
+  <img class="card-img-top" src="{% static '/images/164.png' %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><center><strong>MOST RUNS</strong></center></h5>
+    <p class="card-text"><center><strong>KOHLI-5412 RUNS</strong></center></p>
+</div>
+</div>
+<div class="card" style="width: 15rem;float:left;margin:0px 40px;background-color: #ec1c24;">
+  <img class="card-img-top" src="{% static '/images/236.png' %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><center><strong>MOST SIXES</strong></center></h5>
+    <p class="card-text"><center><strong>Chris Gayle-326</strong></center></p>
+</div>
+</div>
+<div class="card" style="width: 15rem;float:left;margin:0px 40px;background-color: #ec1c24;">
+  <img class="card-img-top" src="{% static '/images/236.png' %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><center><strong>HIGHEST_SCORE</strong></center></h5>
+    <p class="card-text"><center><strong>Chris Gayle- 175*</strong></center></p>
+</div>
+</div>
+<div class="card" style="width: 15rem;float:left;margin:0px 40px;background-color:#b3a123;">
+  <img class="card-img-top" src="{% static '/images/177.png' %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><center><strong>STRIKE RATE</strong></center></h5>
+    <p class="card-text"><center><strong>Russell- 186.41</strong></center></p>
+</div>
+</div>
+<div class="card" style="width: 15rem;margin:0px 40px;background-color:#d9e3ef;">
+  <img class="card-img-top" src="{% static '/images/41.png' %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><center><strong>MOST FOURS</strong></center></h5>
+    <p class="card-text"><center><strong> DHAVAN-524</strong></center></p>
+</div>
+</div>
+
+ 
+
+  <div id="topbatsman" class="table-responsive">
+  <h2><center><strong>TOP BATSMEN</strong></center></h2>
+	 {% if topbat_items %}
+	<table class="table table-striped table-hover table-sm table-bordered  data-pagination="true">
+	
+	<thead bgcolor= "#c68c53" >
+	
+    <tr>
+	
+      <th scope="col"><em>POS</em></th>
+      <th scope="col"><em>PLAYER_NAME</em></th>
+      <th scope="col"><em>MATCHES</em></th>
+      <th scope="col"><em>INNS</em></th>
+	  <th scope="col"><em>NOTOUT</em></th>
+      <th scope="col"><em>RUNS</em></th>
+      <th scope="col"><em>HIGEST_SCORE</em></th>
+      <th scope="col"><em>AVERAGE</em></th>
+	  <th scope="col"><em>BF</em></th>
+      <th scope="col"><em>STRIKE RATE</em></th>
+      <th scope="col"><em>HUNDREDS</em></th>
+      <th scope="col"><em>FIFTIES</em></th>
+	  <th scope="col"><em>FOURS</em></th>
+      <th scope="col"><em>SIXES</em></th>
+    </tr>
+	</thead>
+
+        {% for things in topbat_items %}
+                <tr >
+				
+                    <td class="bg-warning">{{things.POS}}</td>
+					<td bgcolor="#ff9933"><strong>{{things.PLAYER_NAME}}<strong></td>
+					<td bgcolor="#abebc6">{{things.MATCHES}}</td>
+					<td bgcolor="#b3b300">{{things.INNS}}</td>
+					<td bgcolor="#ff9933">{{things.NOTOUT}}</td>
+					<td class="bg-warning">{{things.RUNS}}</td>
+					<td class="bg-info">{{things.HIGEST_SCORE}}</td>
+					<td class="bg-active" >{{things.AVERAGE}}</td>
+					<td bgcolor="#ff9999">{{things.BF}}</td>
+					<td bgcolor="#9b59b6">{{things.STRIKERATE}}</td>
+					<td bgcolor="#b3b300">{{things.HUNDREDS}}</td>
+					<td class="bg-warning">{{things.FIFTIES}}</td>
+					<td bgcolor="#ff9933">{{things.FOURS}}</td>
+					<td class="bg-info">{{things.SIXES}}</td>
+					
+                </tr>
+            
+        {% endfor %}
+    {% endif %}
+	</table>
+	
+   </div>
+</div>
+<h1 style="font-size:15px;color:#FF00FF;"><center><strong>@A project by Jaishruti Ganesh Mahadevan(SE 4th SEM)</strong></center></h1>	
+{% endblock %}
+
+ 
+ 

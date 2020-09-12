@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+ 
+{% block content %}
+
+
+  <div id="iplmatches" class="table-responsive">
+  <h2><center><strong>IPL Match Details</strong></center></h2>
+{% if allitems.has_other_pages %}
+
+  <ul class="pagination">
+    {% if allitems.has_previous %}
+      <li class="page-item" style="font-size:25px;float:left;padding: 4px 20px;color:black;"><a href="?page={{ allitems.previous_page_number }}"><strong>&laquo;Previous</strong></a></li>
+    {% else %}
+      <li class="page-item disabled"></li>
+    {% endif %}
+	<!-- {% for pg in page_range %}
+            {% if allitems.number == pg %}
+                <li><a href="?page={{pg}}" class="btn btn-default"><strong>{{pg}}</strong></a></li>
+            {% else %}
+                <li><a href="?page={{pg}}" class="btn"><strong>{{pg}}</strong></a></li>
+            {% endif %}
+    {% endfor %} --> 
+    <li class="page-item" style="font-size:25px;float:right;padding: 4px 50px;color:black;"><a href="?page={{ 1 }}"><strong>FirstPage</strong></a></li>	
+    {% if allitems.has_next %}
+      <li class="page-item" style="font-size:25px;float:right;padding: 4px 50px;color:black;"><a href="?page={{ allitems.next_page_number }}"><strong>&raquo;Next</strong></a></li>
+    {% else %}
+      <li class="disabled"></li>
+    {% endif %} 
+
+	<li class="page-item" style="font-size:25px;float:right;padding: 4px 50px;color:black;"><a href="?page={{ max_index }}"><strong>FinalPage</strong></a></li>	
+    
+    <span class="clear_both"></span>
+  </ul>
+  
+{% endif %}
+	 
+	<table class="table table-striped table-hover table-sm table-bordered  data-pagination="true">
+	
+	<thead bgcolor= "#c68c53" >
+	
+    <tr>
+      <!--<th scope="col"><em>id</em></th>-->
+      <th scope="col"><em>season</em></th>
+      <th scope="col"><em>city</em></th>
+      <th scope="col"><em>date</em></th>
+	  <th scope="col"><em>team1</em></th>
+      <th scope="col"><em>team</em></th>
+      <th scope="col"><em>toss_winner</em></th>
+      <th scope="col"><em>toss_decision</em></th>
+	  <th scope="col"><em>result</em></th>
+      <th scope="col"><em>dl_applied</em></th>
+      <th scope="col"><em>winner</em></th>
+      <th scope="col"><em>win_by_runs</em></th>
+	  <th scope="col"><em>win_by_wickets</em></th>
+      <th scope="col"><em>player_of_match</em></th>
+      <th scope="col"><em>venue</em></th>
+      <th scope="col"><em>umpire1</em></th>
+      <th scope="col"><em>umpire</em></th>
+      
+    </tr>
+	</thead>
+
+        {% for things in allitems %}
+                <tr >
+                    <!--<td class="bg-warning">{{things.id}}</td>-->
+					<td bgcolor="#ff9933">{{things.season}}</td>
+					<td bgcolor="#abebc6">{{things.city}}</td>
+					<td bgcolor="#b3b300">{{things.date}}</td>
+					<td bgcolor="#ff9933">{{things.team1}}</td>
+					<td class="bg-warning">{{things.team}}</td>
+					<td class="bg-info">{{things.toss_winner}}</td>
+					<td class="bg-active" >{{things.toss_decision}}</td>
+					<td bgcolor="#ff9999">{{things.result}}</td>
+					<td bgcolor="#9b59b6">{{things.dl_applied}}</td>
+					<td bgcolor="#b3b300">{{things.winner}}</td>
+					<td class="bg-warning">{{things.win_by_runs}}</td>
+					<td bgcolor="#ff9933">{{things.win_by_wickets}}</td>
+					<td class="bg-info">{{things.player_of_match}}</td>
+					<td bgcolor="#809fff">{{things.venue}}</td>
+					<td bgcolor="#b3b300">{{things.umpire1}}</td>
+					<td class="bg-info">{{things.umpire}}</td>
+					
+                </tr>
+            
+        {% endfor %}
+    </table>
+   </div>
+
+
+
+{% if winner_count %}
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered table-sm data-pagination="true">
+	<thead bgcolor="#f39c12">
+    <tr>
+	  <th scope="col"><em>winner</em></th>
+      <th scope="col"><em>winning_count</em></th>
+    </tr>
+	</thead>
+
+        {% for things in winner_count %}
+                <tr class="bg-warning">
+					<td bgcolor="#abebc6">{{things.winner}}</td>
+					<td bgcolor="#abebc6">{{things.winner_count}}</td>
+				</tr>            
+        {% endfor %}
+    </table>
+   </div>    
+{% endif %}
+{% if champion_count %}
+  <div class="table-responsive">
+    <table class="table table-hover table-bordered table-sm data-pagination="true">
+	<thead bgcolor="#f39c12">
+    <tr>
+	  <th scope="col"><em>winner</em></th>
+      <th scope="col"><em>champion_count</em></th>
+    </tr>
+	</thead>
+
+        {% for things in champion_count %}
+                <tr class="bg-warning">
+					<td bgcolor="#abebc6">{{things.winner}}</td>
+					<td bgcolor="#abebc6">{{things.champion_count}}</td>
+				</tr>            
+        {% endfor %}
+    </table>
+   </div>    
+{% endif %}
+<h1 style="font-size:15px;color:#FF00FF;"><center><strong>@A project by Jaishruti Ganesh Mahadevan(SE 4th SEM)</strong></center></h1>	
+{% endblock %}
+
+ 
+ 

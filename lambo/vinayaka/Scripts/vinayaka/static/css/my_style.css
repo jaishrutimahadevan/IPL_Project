@@ -1,0 +1,17 @@
+.striker{
+    text-decoration: line-through;
+}
+.wrap {
+	perspective: 800px;
+	perspective-origin: 50% 100px;
+}
+.cube {
+	position: relative;
+	width: 200px;
+	transform-style: preserve-3d;
+}
+.cube div {
+	position: absolute;
+	width: 200px;
+	height: 200px;
+}

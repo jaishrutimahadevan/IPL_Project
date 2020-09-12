@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class:"container">
+<div class="card" style="width: 15rem; float:left;background-color:#005fa2;">
+  <img class="card-img-top" src="{% static '/images/211.png' %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><center><strong>MOST WICKETS</strong></center></h5>
+    <p class="card-text"><center><strong>MALINGA- 170 </strong></center></p>
+</div>
+</div>
+<div class="card" style="width: 14rem;float:left;margin:0px 40px;background-color: #005fa2;">
+  <img class="card-img-top" src="{% static '/images/3098.png' %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><center><strong>BEST BOWLING FIGURE</strong></center></h5>
+    <p class="card-text"><center><strong>JOSEPH-6/12</strong></center></p>
+</div>
+</div>
+<div class="card" style="width: 14rem;float:left;margin:0px 40px;background-color:  #c02826;">
+  <img class="card-img-top" src="{% static '/images/1664.png' %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><center><strong>BEST BOWLING AVERAGE</strong></center></h5>
+    <p class="card-text"><center><strong>RABADA- 17.93</strong></center></p>
+</div>
+</div>
+<div class="card" style="width: 15rem;float:left;margin:0px 40px;background-color: #d9e3ef;">
+  <img class="card-img-top" src="{% static '/images/2885.png' %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><center><strong>BEST ECONOMY</strong></center></h5>
+    <p class="card-text"><center><strong>RASHID- 6.55</strong></center></p>
+</div>
+</div>
+<div class="card" style="width: 15rem;margin:0px 40px;background-color: #f9cd05;">
+  <img class="card-img-top" src="{% static '/images/103.png' %}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title"><center><strong>MOST DOTS</strong></center></h5>
+    <p class="card-text"><center><strong> HARBHJAN-1249<strong></center></p>
+</div>
+</div>
+  <div id="topbowlers" class="table-responsive">
+  <h2><center><strong>TOP BOWLERS</strong></center></h2>
+	 {% if topbowl_items %}
+	<table class="table table-striped table-hover table-sm table-bordered  data-pagination="true">
+	
+	<thead bgcolor= "#c68c53" >
+	
+    <tr>
+	
+      <th scope="col"><em>POS</em></th>
+      <th scope="col"><em>PLAYER_NAME</em></th>
+      <th scope="col"><em>MATCHES</em></th>
+      <th scope="col"><em>INNS</em></th>
+	  <th scope="col"><em>OVER</em></th>
+      <th scope="col"><em>RUNS</em></th>
+      <th scope="col"><em>WICKETS</em></th>
+      <th scope="col"><em>BBI</em></th>
+	  <th scope="col"><em>AVERAGE</em></th>
+      <th scope="col"><em>ECONOMY</em></th>
+      <th scope="col"><em>STRIKERATE</em></th>
+      <th scope="col"><em>FOUR_WICKETS</em></th>
+	  <th scope="col"><em>FIVE_WICKETS</em></th>
+      
+    </tr>
+	</thead>
+
+        {% for things in topbowl_items %}
+                <tr >
+				
+                    <td class="bg-warning">{{things.POS}}</td>
+					<td bgcolor="#ff9933"><strong>{{things.PLAYER_NAME}}<strong></td>
+					<td bgcolor="#abebc6">{{things.MATCHES}}</td>
+					<td bgcolor="#b3b300">{{things.INNS}}</td>
+					<td bgcolor="#ff9933">{{things.OVER}}</td>
+					<td class="bg-warning">{{things.RUNS}}</td>
+					<td class="bg-info">{{things.WICKETS}}</td>
+					<td class="bg-active" >{{things.BBI}}</td>
+					<td bgcolor="#ff9999">{{things.AVERAGE}}</td>
+					<td bgcolor="#9b59b6">{{things.ECONOMY}}</td>
+					<td bgcolor="#b3b300">{{things.STRIKERATE}}</td>
+					<td class="bg-warning">{{things.FOUR_WIKETS}}</td>
+					<td bgcolor="#ff9933">{{things.FIVE_WICKETS}}</td>
+				</tr>
+            
+        {% endfor %}
+    {% endif %}
+	</table>
+	
+   </div>
+
+<h1 style="font-size:15px;color:#FF00FF;"><center><strong>@A project by Jaishruti Ganesh Mahadevan(SE 4th SEM)</strong></center></h1>	
+{% endblock %}
+
+ 
+ 

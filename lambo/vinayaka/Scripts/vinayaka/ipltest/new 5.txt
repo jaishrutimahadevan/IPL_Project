@@ -1,0 +1,36 @@
+class PlayerOfMatchView(models.Model):
+	player_of_match = models.CharField(max_length=255)
+	player_of_match_count = models.DecimalField(max_digits=19, decimal_places=2)
+ 
+	class Meta:
+		managed = False
+		db_table = 'player_of_match_view'
+class PlayerOfMatchViewForm(forms.ModelForm):
+    class Meta:
+        model = PlayerOfMatchView
+        fields = ["player_of_match","player_of_match_count"]
+		
+		
+         playerofmatch_count=player_of_match_view.objects.all()
+	#   langs = ['C', 'C++', 'Java', 'Python', 'PHP']		
+		qs2 = playerofmatch_count.values_list('player_of_match',flat=True)
+		langs1=[]
+		students1=[]
+		for e2 in qs2:
+		
+		    langs1.append(e)
+			
+		qs3=playerofmatch_count.values_list('player_of_match_count',flat=True)
+		
+		for e3 in qs3:
+		
+		    students1.append(e1)			
+
+		trace1 = go.Pie(labels = langs1, values = students1)
+		data = [trace1]
+		trace1.title="TOP FIVE MAN OF THE MATCH"
+		trace1.title.font.family='Times New Roman'
+		trace1.title.font.size=25
+		trace1.title.font.color='#006600'
+		trace1.title.position="bottom center"
+		trace1.marker.colors=['blue','yellow','#29235f','#e92e06','red']
